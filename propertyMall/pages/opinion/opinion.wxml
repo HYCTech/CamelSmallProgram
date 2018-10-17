@@ -1,0 +1,3 @@
+   <view class='loading-result' wx:if="{{opinionList.length==0}}"> 
+   {{showMessage}} 
+   </view>

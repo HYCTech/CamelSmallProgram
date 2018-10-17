@@ -1,0 +1,3 @@
+   <view class='loading-result' wx:if="{{underwayList.length==0}}"> 
+   {{showMessage}} 
+   </view>

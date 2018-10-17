@@ -1,0 +1,28 @@
+   <view class='loading-result' wx:if="{{orderList.length==0}}"> 
+   {{showMessage}} 
+   </view>
+<scroll-view class="container" scroll-y="true" wx:if="{{orderList.length>0}}">
+
+ 
+   <block wx:for="{{orderList}}" wx:key="">
+    <view class="orderList">
+
+      <view class="order-content" bindtap='goInfo' id="{{index}}">
+        <image class="order-content-restaurantImg" src="{{item.img}}"></image>
+        <view class="order-content-info">
+          <view class="order-content-info-price">
+            <text class="order-content-info-text">单 号：  {{item.orderNumber}}</text>
+          </view>
+          <view class="order-content-info-price">
+            <text class="order-content-info-text">报修时间：  {{item.date}}</text>
+          </view>
+          <view class="order-content-info-price">
+            <text class="order-content-info-text">处理情况： </text> {{item.type}} 
+          </view>
+ 
+        </view>
+      </view>
+
+    </view>
+  </block> 
+</scroll-view>

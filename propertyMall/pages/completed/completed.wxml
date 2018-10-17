@@ -1,0 +1,4 @@
+   <view class='loading-result' wx:if="{{completedList.length==0}}"> 
+   {{showMessage}} 
+   </view>
+

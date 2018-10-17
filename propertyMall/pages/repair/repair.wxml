@@ -1,0 +1,84 @@
+<!--获取头像用户基本信息-->
+<view class="page">
+
+  <!--注册表单-->
+  <view class="usermotto">
+    <!-- <view class="title-label-repair">{{repairName}}</view> -->
+    <form bindsubmit="formSubmit" bindreset="formReset">
+
+      <view class="weui-cells weui-cells_after-title">
+        <!--房号-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">房号：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="roomNumber" placeholder-class='edit_text' placeholder="例 5#2109" />
+          </view>
+        </view>
+        <!--业主姓名-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">类别：</view>
+          </view>
+          <view class="weui-cell__bd">
+
+            <view class="navigator" bindtap="open">
+              <view class="navigator-text" name="repairType">{{repairType}}</view>
+              <view class="navigator-arrow"></view>
+            </view>
+          </view>
+        </view>
+        <!--报修信息-->
+        <view class="weui-cell weui-cell_input"></view>
+        <view>
+          <view class='repair-conent'>报修信息:</view>
+          <textarea class="areas" minlength="{{min}}" maxlength="{{max}}" bindinput="inputs">
+            <text class="hint">{{currentWordNumber|0}}/{{max}}</text>
+          </textarea>
+
+        </view>
+        <view class="weui-cell weui-cell_input"></view>
+        <!--上传照片-->
+
+        <view class="weui-cell weui-cell_input" bindtap="joinPicture" data-index="{{0}}">
+          <view class="weui-cell__hd">
+            <view class="weui-label">
+              <image src="/pages/images/camera.png"></image>
+            </view>
+          </view>
+          <view class="weui-cell__bd">
+            <view class="navigator" bindtap="open">
+              添加照片
+            </view>
+          </view>
+        </view>
+        <view class="educt_hasupload_pic" wx:for="{{evalList[0].tempFilePaths}}" wx:key="index">
+          <image src="{{item.pic}}" class="upload" bindtap="showDialogBtn" data-show-src="{{item.pic}}" data-img-number="{{index}}"></image>
+
+        </view>
+
+        <view>
+          <button type="primary" class='btn-confirm '   formType="submit">确定</button>
+        </view>
+      </view>
+      
+    </form>
+
+  </view>
+
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">显示图片</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <image class="showImag" src='{{showImg}}'></image>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">删除</view>
+    </view>
+  </view>
+</view>

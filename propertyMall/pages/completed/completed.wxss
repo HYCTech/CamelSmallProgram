@@ -1,0 +1,13 @@
+/* pages/completed/completed.wxss */
+.loading-result {
+  position: absolute;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
+  align-content: center;
+  text-align: center;
+  font-size: 18px;
+}

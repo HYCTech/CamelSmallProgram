@@ -1,0 +1,58 @@
+<!--获取头像用户基本信息-->
+<view class="page">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!--注册表单-->
+  <view class="usermotto">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="weui-cells weui-cells_after-title">
+        <!--业主姓名-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓名：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="userName" placeholder="请输入姓名" />
+          </view>
+        </view>
+        <!--房号-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">房号：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="roomNumber" placeholder="请输入房号" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">手机号：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="phoneNumber" placeholder="请输入手机号" />
+          </view>
+          <view class="weui-cell__ft">
+            <view class="weui-vcode-btn">获取验证码</view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">验证码：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="code" placeholder="请输入验证码" />
+          </view>
+
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <button type="primary" formType="submit">确定</button>
+        </view>
+      </view>
+    </form> 
+  </view>
+</view>

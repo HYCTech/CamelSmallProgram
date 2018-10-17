@@ -1,0 +1,105 @@
+<!--获取头像用户基本信息-->
+<view class="page">
+  <view class="userinfo">
+
+    <view wx:if="{{hasUserInfo}}">
+      <image class="avatar-img" id="bt" type='primary' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view wx:elif="{{!hasUserInfo}}">
+
+      <button id="bt" style='width: 148rpx; height: 148rpx;  border-radius: 50%;align-self: center; padding: 0px;margin: 0px;border:none;' type='primary' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain='true'>
+        <image class="avatar-img" src='/pages/images/user-login.png'></image>
+      </button>
+
+    </view>
+    <view class="info">
+      <text wx:if="{{hasUserInfo}}" class="name">{{userInfo.nickName}}</text>
+      <text wx:elif="{{!hasUserInfo}}" class="name"></text>
+    </view>
+  </view>
+  <!--注册表单-->
+  <view class="usermotto">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="weui-cells weui-cells_after-title">
+        <!--业主姓名-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓名：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="userName" placeholder-class='placeholder-text' placeholder="请输入姓名" />
+          </view>
+        </view>
+        <!--房号-->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">房号：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="roomNumber"  placeholder-class='placeholder-text' placeholder="请输入房号" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">手机号：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="phoneNumber"  placeholder-class='placeholder-text' placeholder="请输入手机号" />
+          </view>
+          <view class="weui-cell__ft">
+            <view class="weui-vcode-btn">获取验证码</view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">验证码：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="code"  placeholder-class='placeholder-text' placeholder="请输入验证码" />
+          </view>
+
+        </view>
+        <view class='weui-cell weui-cell_input'></view>
+        <view >
+          <button type="primary" formType="submit">确定</button>
+        </view>
+      </view>
+    </form>
+    <!-- <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section section_gap">
+        <view class="section__title">switch <input class="weui-input" auto-focus placeholder="将会获取焦点"/></view>
+      </view>
+      <view class="section section_gap">
+        <view class="section__title">slider</view>
+        <slider name="slider" show-value></slider>
+      </view>
+
+      <view class="section">
+        <view class="section__title">input</view>
+        <input name="input" placeholder="please input here" />
+      </view>
+      <view class="section section_gap">
+        <view class="section__title">radio</view>
+        <radio-group name="radio-group">
+          <label>
+            <radio value="radio1" />radio1</label>
+          <label>
+            <radio value="radio2" />radio2</label>
+        </radio-group>
+      </view>
+      <view class="section section_gap">
+        <view class="section__title">checkbox</view>
+        <checkbox-group name="checkbox">
+          <label>
+            <checkbox value="checkbox1" />checkbox1</label>
+          <label>
+            <checkbox value="checkbox2" />checkbox2</label>
+        </checkbox-group>
+      </view>
+      <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <button formType="reset">Reset</button>
+      </view>
+    </form> -->
+  </view>
+</view>
